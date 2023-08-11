@@ -1,4 +1,4 @@
 package com.br.ecommercebook.model;
 
-public class AdressModel {
+public class WishListModel {
 }

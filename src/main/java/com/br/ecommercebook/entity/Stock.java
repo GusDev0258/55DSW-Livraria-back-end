@@ -1,4 +1,4 @@
 package com.br.ecommercebook.entity;
 
-public class Address {
+public class Stock {
 }
