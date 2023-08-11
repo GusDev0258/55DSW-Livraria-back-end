@@ -1,4 +1,8 @@
 package com.br.ecommercebook.repository;
 
-public interface StockRepository {
+import org.springframework.data.repository.CrudRepository;
+
+import com.br.ecommercebook.entity.Stock;
+
+public interface StockRepository extends CrudRepository<Stock, Long>{
 }

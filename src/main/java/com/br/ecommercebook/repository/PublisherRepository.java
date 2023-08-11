@@ -1,4 +1,8 @@
 package com.br.ecommercebook.repository;
 
-public interface PublisherRepository {
+import org.springframework.data.repository.CrudRepository;
+
+import com.br.ecommercebook.entity.Publisher;
+
+public interface PublisherRepository extends CrudRepository<Publisher, Long>{
 }

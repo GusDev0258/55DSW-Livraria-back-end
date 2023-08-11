@@ -1,4 +1,7 @@
 package com.br.ecommercebook.repository;
 
-public interface CountryRepository {
+import org.springframework.data.repository.CrudRepository;
+
+import com.br.ecommercebook.entity.Country;
+public interface CountryRepository extends CrudRepository<Country, Long>{
 }
