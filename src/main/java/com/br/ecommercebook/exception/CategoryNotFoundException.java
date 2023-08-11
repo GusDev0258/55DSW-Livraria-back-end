@@ -1,4 +1,4 @@
 package com.br.ecommercebook.exception;
 
-public class AddressNotFoundException {
+public class CategoryNotFoundException {
 }
