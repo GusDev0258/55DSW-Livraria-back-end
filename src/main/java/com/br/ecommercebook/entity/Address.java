@@ -1,6 +1,5 @@
 package com.br.ecommercebook.entity;
 
-public class Address {
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -35,4 +34,4 @@ public class Address {
     @JsonBackReference
     private User user;
     }
-}
+
