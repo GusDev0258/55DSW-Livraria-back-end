@@ -1,9 +1,11 @@
 package com.br.ecommercebook.repository;
 
 import org.springframework.data.repository.CrudRepository;
-
-import com.br.ecommercebook.entity.Stock;
 import org.springframework.stereotype.Repository;
+
+import com.br.ecommercebook.entity.Author;
+
 @Repository
-public interface StockRepository extends CrudRepository<Stock, Long>{
+public interface AuthorRepository extends CrudRepository<Author, Long>{
+  
 }
