@@ -53,4 +53,9 @@ public class Book {
 
   @ManyToMany(mappedBy = "books")
   private List<Cart> carts;
+
+  @ManyToOne
+  @JoinColumn(name="stock_id", nullable=false)
+  @JsonBackReference
+  private Stock stock;
 }
