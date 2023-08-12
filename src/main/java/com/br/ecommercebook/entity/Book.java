@@ -48,4 +48,9 @@ public class Book {
   @JoinColumn(name="sub_category_id", nullable=false)
   @JsonBackReference
   private SubCategory subCategory;
+
+  @ManyToOne
+  @JoinColumn(name="stock_id", nullable=false)
+  @JsonBackReference
+  private Stock stock;
 }
