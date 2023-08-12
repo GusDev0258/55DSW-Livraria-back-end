@@ -29,4 +29,7 @@ public class User {
     @Column(name = "tokens")
     @JsonManagedReference
     private List<Token> tokens;
+
+    @ManyToMany(mappedBy = "users")
+    private List<CreditCard> credit_cards;
 }

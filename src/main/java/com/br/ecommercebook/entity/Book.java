@@ -1,6 +1,7 @@
 package com.br.ecommercebook.entity;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
@@ -12,6 +13,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
@@ -48,4 +50,7 @@ public class Book {
   @JoinColumn(name="sub_category_id", nullable=false)
   @JsonBackReference
   private SubCategory subCategory;
+
+  @ManyToMany(mappedBy = "books")
+  private List<Cart> carts;
 }
