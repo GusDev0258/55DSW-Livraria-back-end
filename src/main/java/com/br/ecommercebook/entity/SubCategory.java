@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @Entity
@@ -18,4 +20,6 @@ public class SubCategory {
     @JoinColumn(name="category_id", nullable=false)
     @JsonBackReference
     private Category category;
+    @ManyToMany(mappedBy="subCategory")
+    private List<Voucher> voucher;
 }
