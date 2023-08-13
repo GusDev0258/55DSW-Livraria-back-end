@@ -31,5 +31,5 @@ public class User {
     private List<Token> tokens;
 
     @ManyToMany(mappedBy = "users")
-    private List<CreditCard> credit_cards;
+    private List<CreditCard> creditCards;
 }

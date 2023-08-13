@@ -13,4 +13,9 @@ public class PaymentMethod {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "payment_id", referencedColumnName = "id")
+    private PaymentMethod paymentMethod;
+
 }
