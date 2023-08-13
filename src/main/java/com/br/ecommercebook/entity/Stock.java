@@ -15,7 +15,7 @@ public class Stock {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "sotck")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "stock")
     @JsonManagedReference
     private List<Book> book;
 }
