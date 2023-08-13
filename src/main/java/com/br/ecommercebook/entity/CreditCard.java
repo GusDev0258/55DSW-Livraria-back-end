@@ -23,9 +23,9 @@ public class CreditCard {
   private Long id;
 
   private String number;
-  private String responsable_name;
-  private LocalDate expiration_date;
-  private String security_code;
+  private String responsableName;
+  private LocalDate expirationDate;
+  private String securityCode;
 
   @ManyToMany(mappedBy="credit_cards")
   private List<User> users;
