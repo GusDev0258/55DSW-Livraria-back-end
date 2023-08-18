@@ -22,7 +22,9 @@ public class Address {
     private String street;
     private String neighborhood;
     private String state;
-    private String nickname;
+    private String country;
+    @Column(nullable = true)
+    private String complement;
 
     @Column(name = "main_address", nullable = false)
     private boolean mainAddress;
