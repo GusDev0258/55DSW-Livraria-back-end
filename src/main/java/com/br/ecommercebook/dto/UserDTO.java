@@ -1,4 +1,4 @@
-package com.br.ecommercebook.model;
+package com.br.ecommercebook.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,10 +9,11 @@ import java.time.LocalDate;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserUpdateRequest {
+public class UserDTO {
     private String name;
     private String phone;
     private String userName;
-    private LocalDate birthdate;
+    private String email;
     private String password;
+    private LocalDate birthdate;
 }
