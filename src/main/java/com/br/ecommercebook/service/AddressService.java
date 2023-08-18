@@ -1,12 +1,10 @@
 package com.br.ecommercebook.service;
 
-import org.springframework.stereotype.Service;
-
 import com.br.ecommercebook.repository.AddressRepository;
 import com.br.ecommercebook.repository.UserRepository;
 import com.br.ecommercebook.dto.AddressDTO;
-
 import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
