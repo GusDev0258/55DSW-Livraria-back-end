@@ -1,4 +1,4 @@
-package com.br.ecommercebook.model;
+package com.br.ecommercebook.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
