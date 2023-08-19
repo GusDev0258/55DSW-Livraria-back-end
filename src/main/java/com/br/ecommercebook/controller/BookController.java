@@ -1,5 +1,7 @@
 package com.br.ecommercebook.controller;
 
+import com.br.ecommercebook.dto.BookDTO;
+import com.br.ecommercebook.vo.BookVO;
 import lombok.AllArgsConstructor;
 
 import org.springframework.http.HttpStatus;
@@ -14,7 +16,7 @@ import com.br.ecommercebook.dto.BookDTO;
 public class BookController {
 
   @PostMapping("/")
-  public ResponseEntity<Long> create(@RequestBody BookDTO bookRequest) {
-    return new ResponseEntity<Long>(1L, HttpStatus.CREATED);
-  } 
+  public ResponseEntity<BookVO> create(@RequestBody BookDTO bookRequest) {
+    return ResponseEntity.ok(new BookVO());
+  }
 }
