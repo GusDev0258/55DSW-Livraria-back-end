@@ -24,7 +24,8 @@ public class Order {
 
   private String status;
 
-  @ManyToMany(mappedBy = "orders")
+  @ManyToMany
+  @JoinTable(name="order_book", joinColumns = {@JoinColumn(name="order_id")}, inverseJoinColumns = {@JoinColumn(name="id")})
   private List<Book> books;
 
   @OneToOne(cascade = CascadeType.ALL)

@@ -17,6 +17,7 @@ public class Author {
 
   private String name;
 
-  @ManyToMany(mappedBy = "authors")
+  @ManyToMany
+  @JoinTable(name="author_boook", joinColumns = {@JoinColumn(name="author_id")}, inverseJoinColumns = {@JoinColumn(name="id")})
   private List<Book> books;
 }

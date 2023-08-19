@@ -15,7 +15,8 @@ public class Cart {
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
 
-  @ManyToMany(mappedBy="carts")
+  @ManyToMany
+  @JoinTable(name="cart_boook", joinColumns = {@JoinColumn(name="cart_id")}, inverseJoinColumns = {@JoinColumn(name="id")})
   private List<Book> books;
 
   @OneToOne
