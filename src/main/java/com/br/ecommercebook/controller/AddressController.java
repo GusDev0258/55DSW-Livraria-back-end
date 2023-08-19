@@ -20,39 +20,45 @@ public class AddressController {
 
     private AddressService addressService;
 
-    @GetMapping("/user/{userId}")
-    public List<Address> getAddressesOfUser(@PathVariable Long userId) {
-        return addressService.getAddressByUserId(userId);
-    }
+    // @GetMapping("/user/{userId}")
+    // public List<Address> getAddressesOfUser(@PathVariable Long userId) {
+    //     return addressService.getAddressByUserId(userId);
+    // }
 
 
-    @PostMapping("/user/{id}")
-    public ResponseEntity<Long> createAddress(@PathVariable Long id, @RequestBody AddressDTO address){
-        Long response = addressService.create(id, address);
-        return new ResponseEntity<Long>(response, HttpStatus.CREATED);
+    // @PostMapping("/user/{id}")
+    // public ResponseEntity<Long> create(@PathVariable Long id, @RequestBody AddressDTO address){
+    //     Long response = addressService.create(id, address);
+    //     return new ResponseEntity<Long>(response, HttpStatus.CREATED);
+    // }
+
+    @PostMapping("/")
+    public ResponseEntity<AddressVO> create(@RequestBody AddressDTO addressDTO){
+        var response = addressService.create(addressDTO);
+        return new ResponseEntity<AddressVO>(response, HttpStatus.CREATED);
     }
 
-    @PutMapping("{id}/user/{userId}")
-    public ResponseEntity<AddressVO> updateAddressesOfUser(@PathVariable Long userId, @PathVariable Long id, @RequestBody AddressDTO address) {
-        addressService.update(userId, id, address);
-        return new ResponseEntity(address, HttpStatus.OK);
-    }
+    // @PutMapping("{id}/user/{userId}")
+    // public ResponseEntity<AddressVO> updateAddressesOfUser(@PathVariable Long userId, @PathVariable Long id, @RequestBody AddressDTO address) {
+    //     addressService.update(userId, id, address);
+    //     return new ResponseEntity(address, HttpStatus.OK);
+    // }
 
-    @DeleteMapping("{id}/user/{userId}")
-    public ResponseEntity<AddressVO> deleteAddressesOfUser(@PathVariable Long userId, @PathVariable Long id) {
-        addressService.delete(userId, id);
-        return new ResponseEntity(HttpStatus.OK);
-    }
+    // @DeleteMapping("{id}/user/{userId}")
+    // public ResponseEntity<AddressVO> deleteAddressesOfUser(@PathVariable Long userId, @PathVariable Long id) {
+    //     addressService.delete(userId, id);
+    //     return new ResponseEntity(HttpStatus.OK);
+    // }
 
-    @GetMapping("/user/{userId}/main")
-    public Address getMainAddress(@PathVariable Long userId){
-        return addressService.getMainAddress(userId);
-    }
+    // @GetMapping("/user/{userId}/main")
+    // public Address getMainAddress(@PathVariable Long userId){
+    //     return addressService.getMainAddress(userId);
+    // }
 
-    @GetMapping("/{addressId}")
-    public ResponseEntity<Address> getAddress(@PathVariable Long addressId){
-        var RequestedAddress = addressService.getAddressById(addressId);
-        return new ResponseEntity<>(RequestedAddress, HttpStatus.OK);
-    }
+    // @GetMapping("/{addressId}")
+    // public ResponseEntity<Address> getAddress(@PathVariable Long addressId){
+    //     var RequestedAddress = addressService.getAddressById(addressId);
+    //     return new ResponseEntity<>(RequestedAddress, HttpStatus.OK);
+    // }
 
 }
