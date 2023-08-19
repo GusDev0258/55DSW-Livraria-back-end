@@ -20,6 +20,7 @@ public class SubCategory {
     @JoinColumn(name="category_id", nullable=false)
     @JsonBackReference
     private Category category;
-    @ManyToMany(mappedBy="subCategory")
+    @ManyToMany
+    @JoinTable(name="subcategory_voucher", joinColumns = {@JoinColumn(name="subcategory_id")}, inverseJoinColumns = {@JoinColumn(name="id")})
     private List<Voucher> voucher;
 }

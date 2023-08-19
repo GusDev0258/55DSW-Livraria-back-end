@@ -25,10 +25,8 @@ public class Book {
   private LocalDate year;
   private Enum version;
 
-  @ManyToOne
-  @JoinColumn(name="author_id", nullable=false)
-  @JsonBackReference
-  private Author author;
+  @ManyToMany(mappedBy = "books")
+  private List<Author> author;
 
   @ManyToOne
   @JoinColumn(name="publisher_id", nullable=false)
@@ -47,4 +45,7 @@ public class Book {
   @JoinColumn(name="stock_id", nullable=false)
   @JsonBackReference
   private Stock stock;
+
+  @ManyToMany(mappedBy = "books")
+  private List<Order> orders;
 }
