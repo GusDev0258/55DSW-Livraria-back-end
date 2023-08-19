@@ -14,4 +14,6 @@ public class AddressDTO {
   private String street;
   private String neighborhood;
   private String state;
+  private String country;
+  private String complement;
 }
