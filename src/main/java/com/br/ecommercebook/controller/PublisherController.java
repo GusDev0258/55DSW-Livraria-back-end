@@ -17,9 +17,9 @@ public class PublisherController {
 
   private final PublisherService publisherService;
 
-  @PostMapping("/")
-  public ResponseEntity<PublisherVO> create(@RequestBody PublisherDTO publisherDTO) {
-    var PublisherVO = publisherService.create(publisherDTO);
+  @PostMapping("/{addressId}")
+  public ResponseEntity<PublisherVO> create(@PathVariable Long addressId, @RequestBody PublisherDTO publisherDTO) {
+    var PublisherVO = publisherService.create(addressId, publisherDTO);
     return new ResponseEntity<PublisherVO>(PublisherVO, HttpStatus.CREATED);
   }
 

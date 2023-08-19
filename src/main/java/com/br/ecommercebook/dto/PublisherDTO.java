@@ -9,5 +9,4 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class PublisherDTO {
   private String name;
-  private AddressDTO addressDTO;
 }
