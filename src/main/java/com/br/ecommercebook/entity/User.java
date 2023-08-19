@@ -30,6 +30,7 @@ public class User {
     @JsonManagedReference
     private List<Token> tokens;
 
-    @ManyToMany(mappedBy = "users")
+    @ManyToMany
+    @JoinTable(name="user_credit_card", joinColumns = {@JoinColumn(name="user_id")}, inverseJoinColumns = {@JoinColumn(name="id")})
     private List<CreditCard> creditCards;
 }

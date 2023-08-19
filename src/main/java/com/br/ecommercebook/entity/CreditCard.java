@@ -21,6 +21,6 @@ public class CreditCard {
   private LocalDate expirationDate;
   private String securityCode;
 
-  @ManyToMany(mappedBy="credit_cards")
+  @ManyToMany(mappedBy = "creditCards")
   private List<User> users;
 }

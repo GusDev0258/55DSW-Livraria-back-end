@@ -1,5 +1,6 @@
 package com.br.ecommercebook.service;
 
+import com.br.ecommercebook.dto.AddressDTO;
 import com.br.ecommercebook.repository.AddressRepository;
 import com.br.ecommercebook.repository.UserRepository;
 import com.br.ecommercebook.vo.AddressVO;
@@ -19,6 +20,7 @@ public class AddressService {
   private final UserRepository userRepository;
   private final ModelMapper modelMapper;
 
+<<<<<<< HEAD
   public Address create(Long userId, AddressDTO addressDTO) {
     var address = new Address();
     return address;
@@ -28,6 +30,10 @@ public class AddressService {
     var address = modelMapper.map(addressDTO, Address.class);
     var addressEntity = addressRepository.save(address);
     return modelMapper.map(addressEntity, AddressVO.class);
+=======
+  public Long create(Long userId, AddressDTO addressRequest) {
+    return 1L;
+>>>>>>> a06ff44f670166994aea2f442d803a651024bf50
   }
 
 }
