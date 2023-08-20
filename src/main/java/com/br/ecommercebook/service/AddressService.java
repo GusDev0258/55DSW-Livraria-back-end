@@ -20,7 +20,6 @@ public class AddressService {
   private final UserRepository userRepository;
   private final ModelMapper modelMapper;
 
-<<<<<<< HEAD
   public Address create(Long userId, AddressDTO addressDTO) {
     var address = new Address();
     return address;
@@ -30,10 +29,11 @@ public class AddressService {
     var address = modelMapper.map(addressDTO, Address.class);
     var addressEntity = addressRepository.save(address);
     return modelMapper.map(addressEntity, AddressVO.class);
-=======
-  public Long create(Long userId, AddressDTO addressRequest) {
-    return 1L;
->>>>>>> a06ff44f670166994aea2f442d803a651024bf50
+  }
+
+  public AddressVO getAddressById(Long addressId) {
+    var address = addressRepository.findById(addressId).orElseThrow();
+    return modelMapper.map(address, AddressVO.class);
   }
 
 }
