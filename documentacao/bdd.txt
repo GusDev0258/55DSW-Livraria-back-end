@@ -1,0 +1,13 @@
+=== ADMIN ===
+Given: O admin entra no sistema
+When: ele cadastra uma categoria ou sub-categoria
+Then: deve ficar disponível salvar várias categorias atreladas a uma existente ou criar uma categoria
+sem sub-categoria ou mais.
+Then: o sistema primeiro irá checar se a subcatategoria ou categoria existe, caso exista, informar ao usuário
+Then: caso não exista categoria, cadastrá-la e logo após as subcategorias (caso existam)
+
+
+=== BOOK ===
+Given: O usuário acessa a loja
+When: ele clicar em um livro
+Then: será redirecionado para uma nova rota com informações sobre o livro e compra
