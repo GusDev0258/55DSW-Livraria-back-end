@@ -1,6 +1,5 @@
 package com.br.ecommercebook.service;
 
-import com.br.ecommercebook.entity.Cart;
 import com.br.ecommercebook.repository.CartRepository;
 import com.br.ecommercebook.vo.CartVO;
 import lombok.AllArgsConstructor;
@@ -19,6 +18,4 @@ public class CartService {
         var cart = repository.findCartByUserId(userId);
         return modelMapper.map(cart, CartVO.class);
     }
-
-
 }
