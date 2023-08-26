@@ -43,6 +43,28 @@ public class Handler extends ResponseEntityExceptionHandler {
                 HttpStatus.NOT_FOUND);
     }
 
+    @ExceptionHandler(AddressNotFoundException.class)
+    public ResponseEntity<Object> handleAddressNotFoundException(
+            UserNotFoundException ex, WebRequest request) {
+
+        return getObjectResponseEntity(
+                ex.getMessage(),
+                "Address does not exist in the system",
+                ex,
+                HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(NoMainAddressDefinedException.class)
+    public ResponseEntity<Object> handleNoMainAddressDefinedException(
+            NoMainAddressDefinedException ex, WebRequest request) {
+
+        return getObjectResponseEntity(
+                ex.getMessage(),
+                "No main address was defined!",
+                ex,
+                HttpStatus.NOT_FOUND);
+    }
+
     public ResponseEntity<Object> getObjectResponseEntity(String message, Object cause, Exception ex, HttpStatus httpStatus) {
         Map<String, Object> body = new HashMap<>();
         body.put("message", message);
