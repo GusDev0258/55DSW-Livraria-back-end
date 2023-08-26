@@ -15,7 +15,6 @@ public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
     private String city;
     private String cep;
     private int houseNumber;
@@ -29,7 +28,6 @@ public class Address {
     @Column(name = "main_address", nullable = true)
     private boolean mainAddress;
 
-
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = true)
     @JsonBackReference
@@ -39,4 +37,3 @@ public class Address {
     @JoinColumn(name = "publisher_id")
     private Publisher publisher;
     }
-

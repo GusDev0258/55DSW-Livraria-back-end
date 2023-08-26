@@ -20,7 +20,8 @@ public class Voucher {
     @Column(unique = true)
     private int cod;
     @ManyToMany(mappedBy="voucher")
-    private List<SubCategory> subCategory;
+    private List<Category> categories;
     private LocalDateTime creationDate;
     private LocalDateTime expiredDate;
+
 }
