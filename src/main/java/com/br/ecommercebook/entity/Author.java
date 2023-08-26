@@ -18,6 +18,6 @@ public class Author {
   private String name;
 
   @ManyToMany
-  @JoinTable(name="author_boook", joinColumns = {@JoinColumn(name="author_id")}, inverseJoinColumns = {@JoinColumn(name="id")})
+  @JoinTable(name="author_book", joinColumns = {@JoinColumn(name="author_id")}, inverseJoinColumns = {@JoinColumn(name="id")})
   private List<Book> books;
 }

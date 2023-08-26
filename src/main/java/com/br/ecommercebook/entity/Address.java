@@ -25,11 +25,11 @@ public class Address {
     @Column(nullable = true)
     private String complement;
 
-    @Column(name = "main_address", nullable = false)
+    @Column(name = "main_address", nullable = true)
     private boolean mainAddress;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "user_id", nullable = true)
     @JsonBackReference
     private User user;
 

@@ -1,4 +1,6 @@
 package com.br.ecommercebook.exception;
 
-public class CategoryNotFoundException {
-}
+public class CategoryNotFoundException extends RuntimeException{
+    public CategoryNotFoundException() {
+        super("Category not found");
+    }}

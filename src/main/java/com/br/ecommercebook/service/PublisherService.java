@@ -24,10 +24,14 @@ public class PublisherService {
     var publisher = modelMapper.map(publisherDTO, Publisher.class);
     var address = addressRepository.findById(addressId).get();
     publisher.setAddress(address);
-    var publisherEntity = publisherRepository.save(publisher);
-    var publisherVO = modelMapper.map(publisherEntity, PublisherVO.class);
-
+    publisherRepository.save(publisher);
+    var publisherVO = modelMapper.map(publisher, PublisherVO.class);
     return publisherVO;
   }
 
+  public PublisherVO getPublisherById(Long publisherID){
+    var publisher = publisherRepository.findById(publisherID).get();
+    var publisherVO = modelMapper.map(publisher, PublisherVO.class);
+    return publisherVO;
+  }
 }
