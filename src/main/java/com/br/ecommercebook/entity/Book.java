@@ -1,5 +1,6 @@
 package com.br.ecommercebook.entity;
 
+import com.br.ecommercebook.enums.BookType;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -18,12 +19,12 @@ public class Book {
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
   private String name;
-  private String idiom;
-  private int num_pages;
+  private String language;
+  private int pagesNumber;
   private String isbn;
   private Double price;
   private LocalDate year;
-  private Enum version;
+  private BookType version;
 
   @ManyToMany(mappedBy = "books")
   private List<Author> author;
@@ -33,10 +34,8 @@ public class Book {
   @JsonBackReference
   private Publisher publisher;
 
-  @ManyToOne
-  @JoinColumn(name="sub_category_id", nullable=false)
-  @JsonBackReference
-  private SubCategory subCategory;
+  @ManyToMany(mappedBy = "books")
+  private List<Category> category;
 
   @ManyToMany(mappedBy = "books")
   private List<Cart> carts;
