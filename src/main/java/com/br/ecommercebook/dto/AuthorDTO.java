@@ -1,6 +1,4 @@
-package com.br.ecommercebook.vo;
-
-import java.util.List;
+package com.br.ecommercebook.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,8 +7,6 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class AuthorVO {
-  private Long id;
+public class AuthorDTO {
   private String name;
-  private List<BookVO> books;
 }

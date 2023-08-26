@@ -21,7 +21,6 @@ public class AddressController {
         var response = addressService.getAddressByUserId(userId);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
-
     @PostMapping("/")
     public ResponseEntity<AddressVO> create(@RequestBody AddressDTO addressDTO){
         var response = addressService.create(addressDTO);
@@ -47,7 +46,7 @@ public class AddressController {
     }
 
     @GetMapping("/{addressId}")
-    public ResponseEntity<AddressVO> getAddress(@PathVariable Long addressId){
+    public ResponseEntity<AddressVO> getAddress(@PathVariable Long addressId) {
         var response = addressService.getAddressById(addressId);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }

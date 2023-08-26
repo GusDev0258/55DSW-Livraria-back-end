@@ -33,10 +33,8 @@ public class Book {
   @JsonBackReference
   private Publisher publisher;
 
-  @ManyToOne
-  @JoinColumn(name="sub_category_id", nullable=false)
-  @JsonBackReference
-  private SubCategory subCategory;
+  @ManyToMany(mappedBy = "books")
+  private List<Category> category;
 
   @ManyToMany(mappedBy = "books")
   private List<Cart> carts;
