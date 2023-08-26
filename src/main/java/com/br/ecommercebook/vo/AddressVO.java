@@ -1,8 +1,11 @@
 package com.br.ecommercebook.vo;
 
+import com.br.ecommercebook.entity.Address;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -17,4 +20,7 @@ public class AddressVO {
     private String state;
     private String country;
     private String complement;
+
+    public AddressVO(List<Address> addresses) {
+    }
 }
