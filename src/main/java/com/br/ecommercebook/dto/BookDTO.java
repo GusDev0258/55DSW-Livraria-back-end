@@ -20,5 +20,5 @@ public class BookDTO {
   private BookType version;
   private Long publisher;
   private Long[] authors;
-  private Long category;
+  private Long[] categories;
 }

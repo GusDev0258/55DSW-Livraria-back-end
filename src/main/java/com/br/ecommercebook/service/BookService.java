@@ -8,10 +8,14 @@ import com.br.ecommercebook.repository.AuthorRepository;
 import com.br.ecommercebook.repository.BookRepository;
 import com.br.ecommercebook.repository.CategoryRepository;
 import com.br.ecommercebook.repository.PublisherRepository;
+import com.br.ecommercebook.vo.AuthorVO;
 import com.br.ecommercebook.vo.BookVO;
+import com.br.ecommercebook.vo.CategoryVO;
+
 import lombok.AllArgsConstructor;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
@@ -29,26 +33,62 @@ public class BookService {
 
 
   public BookVO create(BookDTO bookRequest) {
-    var authorArray = bookRequest.getAuthors();
-    var authorList = new ArrayList<Author>();
-    for(Long authorId : authorArray) {
-      var author = authorRepository.findById(authorId).get();
-      authorList.add(author);
-    }
-    var category  = categoryRepository.findById(bookRequest.getCategory()).get();
-    var publisher = publisherRepository.findById(bookRequest.getPublisher()).get();
-    var book      = modelMapper.map(bookRequest, Book.class);
-    var categoryList = new ArrayList<Category>();
-    book.setAuthor(authorList);
-    book.setCategory(categoryList);
-    categoryList.add(category);
+
+    var authors    = this.setAuthorList(bookRequest.getAuthors());
+    var categories = this.setCategoryList(bookRequest.getCategories());
+    var publisher  = publisherRepository.findById(bookRequest.getPublisher()).get();
+    var book       = modelMapper.map(bookRequest, Book.class);
+    book.setAuthor(authors);
+    book.setCategory(categories);
     book.setPublisher(publisher);
     bookRepository.save(book);
-    return modelMapper.map(book, BookVO.class);
+    var authorsVO = this.getAuthorVOList(authors);
+    var categoriesVO = this.getCategoryVOList(categories);
+    var bookVO = modelMapper.map(book, BookVO.class);
+    bookVO.setAuthor(authorsVO);
+    bookVO.setCategory(categoriesVO);
+    return bookVO;
   }
 
   public BookVO getById(Long id) {
     var book = bookRepository.findById(id);
     return new BookVO();
   }
+ 
+  private List<AuthorVO> getAuthorVOList(List<Author> author) {
+    var authorVOList = new ArrayList<AuthorVO>();
+    for(Author authorItem : author) {
+      var authorVO = modelMapper.map(authorItem, AuthorVO.class);
+      authorVOList.add(authorVO);
+    }
+    return authorVOList;
+  }
+
+  private List<CategoryVO> getCategoryVOList(List<Category> category) {
+    var categoryVOList = new ArrayList<CategoryVO>();
+    for(Category categoryItem : category) {
+      var categoryVO = modelMapper.map(categoryItem, CategoryVO.class);
+      categoryVOList.add(categoryVO);
+    }
+    return categoryVOList;
+  }
+
+  private List<Author> setAuthorList(Long[] Authors){
+    var authorList = new ArrayList<Author>();
+    for(Long authorId : Authors) {
+      var author = authorRepository.findById(authorId).get();
+      authorList.add(author);
+    }
+    return authorList;
+  }
+
+  private List<Category> setCategoryList(Long[] Categories){
+    var categoryList = new ArrayList<Category>();
+    for(Long categoryId : Categories) {
+      var category = categoryRepository.findById(categoryId).get();
+      categoryList.add(category);
+    }
+    return categoryList;
+  }
+
 }

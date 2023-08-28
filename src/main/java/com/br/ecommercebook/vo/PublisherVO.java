@@ -14,7 +14,8 @@ import lombok.NoArgsConstructor;
 public class PublisherVO {
   private Long id;
   private String name;
-  private AddressVO address;
+  private String email;
+  private String phone;
   
   @JsonBackReference
   private List<BookVO> books;
