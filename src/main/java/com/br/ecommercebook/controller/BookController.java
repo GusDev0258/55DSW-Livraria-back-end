@@ -3,7 +3,11 @@ package com.br.ecommercebook.controller;
 import com.br.ecommercebook.dto.BookDTO;
 import com.br.ecommercebook.service.BookService;
 import com.br.ecommercebook.vo.BookVO;
+
+import jakarta.websocket.server.PathParam;
 import lombok.AllArgsConstructor;
+
+import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +26,24 @@ public class BookController {
   public ResponseEntity<BookVO> create(@RequestBody BookDTO bookRequest) {
     var bookResponse = bookService.create(bookRequest);
     return new ResponseEntity<BookVO>(bookResponse, HttpStatus.CREATED);
+  }
+
+  @GetMapping("/{id}")
+  public ResponseEntity<BookVO> getById(@PathVariable Long id) {
+    var bookResponse = bookService.getById(id);
+    return new ResponseEntity<BookVO>(bookResponse, HttpStatus.OK);
+  }
+
+  @GetMapping("/")
+  public ResponseEntity<BookVO> getByName(@RequestParam String name) {
+    var bookResponse = bookService.getByName(name);
+    return new ResponseEntity<BookVO>(bookResponse, HttpStatus.OK);
+  }
+
+  @GetMapping("/author/{authorId}")
+  public ResponseEntity<List<BookVO>> getByAuthor(@PathVariable Long authorId) {
+    var bookResponse = bookService.getByAuthor(authorId);
+    return new ResponseEntity<List<BookVO>>(bookResponse, HttpStatus.OK);
   }
 }
 //TODO: 1.1  -  Crie um endpoint para salvar um livro
