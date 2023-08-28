@@ -22,8 +22,6 @@ public class BookVO {
   private LocalDate releaseDate;
   private BookType version;
   private PublisherVO publisher;
-  @JsonBackReference
   private List<AuthorVO> author;
-  @JsonBackReference
   private List<CategoryVO> category;
 }
