@@ -16,9 +16,9 @@ public class BookDTO {
   private int pagesNumber;
   private String isbn;
   private Double price;
-  private LocalDate releaseDate;
+  private String releaseDate;
   private BookType version;
   private Long publisher;
-  private Long author;
+  private Long[] authors;
   private Long category;
 }

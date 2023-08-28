@@ -48,7 +48,6 @@ public class AddressService {
     var addresses = addressRepository.findByUserId(userId).orElseThrow(UserNotFoundException::new);
     var address = addresses
             .stream()
-            .filter(Address::isMainAddress)
             .findFirst()
             .orElseThrow(NoMainAddressDefinedException::new);
 
@@ -77,7 +76,6 @@ public class AddressService {
     oldObj.setState(newObj.getState());
     oldObj.setCountry(newObj.getCountry());
     oldObj.setComplement(newObj.getComplement());
-    oldObj.setMainAddress(newObj.isMain_address());
 
     return modelMapper.map(oldObj, AddressVO.class);
   }
