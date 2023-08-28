@@ -22,18 +22,13 @@ public class Address {
     private String neighborhood;
     private String state;
     private String country;
+    
     @Column(nullable = true)
     private String complement;
-
-    @Column(name = "main_address", nullable = true)
-    private boolean mainAddress;
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = true)
     @JsonBackReference
     private User user;
 
-    @OneToOne
-    @JoinColumn(name = "publisher_id")
-    private Publisher publisher;
     }

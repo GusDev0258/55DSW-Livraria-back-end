@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 import com.br.ecommercebook.enums.BookType;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,6 +22,8 @@ public class BookVO {
   private LocalDate releaseDate;
   private BookType version;
   private PublisherVO publisher;
+  @JsonBackReference
   private List<AuthorVO> author;
+  @JsonBackReference
   private List<CategoryVO> category;
 }

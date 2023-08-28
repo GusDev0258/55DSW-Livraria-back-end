@@ -2,6 +2,8 @@ package com.br.ecommercebook.entity;
 
 import com.br.ecommercebook.enums.BookType;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -41,7 +43,7 @@ public class Book {
   private List<Cart> carts;
 
   @ManyToOne
-  @JoinColumn(name="stock_id", nullable=false)
+  @JoinColumn(name="stock_id", nullable=true)
   @JsonBackReference
   private Stock stock;
 
