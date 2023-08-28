@@ -33,7 +33,6 @@ public class BookService {
 
 
   public BookVO create(BookDTO bookRequest) {
-
     var authors    = this.setAuthorList(bookRequest.getAuthors());
     var categories = this.setCategoryList(bookRequest.getCategories());
     var publisher  = publisherRepository.findById(bookRequest.getPublisher()).get();

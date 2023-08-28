@@ -16,14 +16,11 @@ import lombok.AllArgsConstructor;
 public class PublisherService {
 
   private final PublisherRepository publisherRepository;
-  private final AddressRepository addressRepository;
 
   private final ModelMapper modelMapper;
   
   public PublisherVO create(Long addressId, PublisherDTO publisherDTO) {
     var publisher = modelMapper.map(publisherDTO, Publisher.class);
-    var address = addressRepository.findById(addressId).get();
-    publisher.setAddress(address);
     publisherRepository.save(publisher);
     var publisherVO = modelMapper.map(publisher, PublisherVO.class);
     return publisherVO;
