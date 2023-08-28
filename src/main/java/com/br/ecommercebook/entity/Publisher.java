@@ -18,10 +18,8 @@ public class Publisher {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
-
-    @OneToOne
-    @JoinColumn(name = "address_id")
-    private Address address;
+    private String email;
+    private String phone;
 
     @OneToMany(mappedBy = "publisher")
     @Column(name = "books", nullable = true)
