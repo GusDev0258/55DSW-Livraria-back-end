@@ -51,9 +51,24 @@ public class BookService {
 
   public BookVO getById(Long id) {
     var book = bookRepository.findById(id);
-    return new BookVO();
+    return modelMapper.map(book, BookVO.class);
   }
  
+  public BookVO getByName(String name){
+    var book = bookRepository.findByName(name);
+    return modelMapper.map(book, BookVO.class);
+  }
+
+  public List<BookVO> getByAuthor(Long authorId){
+    var bookList = bookRepository.findByAuthor(authorId);
+    var bookVOList = new ArrayList<BookVO>();
+    for(Book book : bookList) {
+      var bookVO = modelMapper.map(book, BookVO.class);
+      bookVOList.add(bookVO);
+    }
+    return bookVOList;
+  }
+
   private List<AuthorVO> getAuthorVOList(List<Author> author) {
     var authorVOList = new ArrayList<AuthorVO>();
     for(Author authorItem : author) {
