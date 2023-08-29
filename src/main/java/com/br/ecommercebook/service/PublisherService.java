@@ -19,7 +19,7 @@ public class PublisherService {
 
   private final ModelMapper modelMapper;
   
-  public PublisherVO create(Long addressId, PublisherDTO publisherDTO) {
+  public PublisherVO create(PublisherDTO publisherDTO) {
     var publisher = modelMapper.map(publisherDTO, Publisher.class);
     publisherRepository.save(publisher);
     var publisherVO = modelMapper.map(publisher, PublisherVO.class);

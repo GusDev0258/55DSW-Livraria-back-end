@@ -20,9 +20,11 @@ public class Category {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
     @JsonManagedReference
     private List<SubCategory> subCategory;
+    
     @ManyToMany
     @JoinTable(name="category_book", joinColumns = {@JoinColumn(name="category_id")}, inverseJoinColumns = {@JoinColumn(name="id")})
     private List<Book> books;
+
     @ManyToMany
     @JoinTable(name="category_voucher", joinColumns = {@JoinColumn(name="category_id")}, inverseJoinColumns = {@JoinColumn(name="id")})
     private List<Voucher> voucher;
