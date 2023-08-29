@@ -25,7 +25,7 @@ public class Book {
   private int pagesNumber;
   private String isbn;
   private Double price;
-  private LocalDate year;
+  private LocalDate releaseDate;
   private BookType version;
 
   @ManyToMany(mappedBy = "books")
