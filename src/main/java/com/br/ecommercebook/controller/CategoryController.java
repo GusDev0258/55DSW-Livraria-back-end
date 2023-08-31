@@ -6,6 +6,9 @@ import com.br.ecommercebook.service.CategoryService;
 import com.br.ecommercebook.service.SubCategoryService;
 import com.br.ecommercebook.vo.CategoryVO;
 import lombok.AllArgsConstructor;
+
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,5 +25,12 @@ public class CategoryController {
         CategoryVO response = categoryService.create(category);
 
         return new ResponseEntity<CategoryVO>(response, HttpStatus.CREATED);
+    }
+
+    @GetMapping("/getAll")
+    public ResponseEntity<List<CategoryVO>> getAll() {
+        List<CategoryVO> response = categoryService.getAll();
+
+        return new ResponseEntity<List<CategoryVO>>(response, HttpStatus.OK);
     }
 }
