@@ -13,6 +13,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
@@ -63,5 +64,15 @@ public class CategoryService {
         }
         var a = category.get();
         return modelMapper.map(category.get(), CategoryVO.class);
+    }
+
+    public List<CategoryVO> getAll() {
+        var categoryList = categoryRepository.findAll();
+        var categoryVOList = new ArrayList<CategoryVO>();
+        for (Category category : categoryList) {
+            var categoryVO = modelMapper.map(category, CategoryVO.class);
+            categoryVOList.add(categoryVO);
+        }
+        return categoryVOList;
     }
 }
