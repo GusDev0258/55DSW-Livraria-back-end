@@ -1,14 +1,14 @@
 ## BOOK Entity TODO
--  1.1  -  Crie um endpoint para salvar um livro ✅ 
--  1.2  -  Crie um endpoint para listar todos os livros ✅
--  1.3  -  Crie um endpoint para buscar um livro por id ✅
--  1.4  -  Crie um endpoint para atualizar um livro ✅
--  1.5  -  Crie um endpoint para deletar um livro ✅
--  1.6  -  Crie um endpoint para buscar um livro por nome ✅
--  1.7  -  Crie um endpoint para buscar um livro por autor ✅
--  1.8  -  Crie um endpoint para buscar um livro por editora
--  1.9  -  Crie um endpoint para buscar um livro por ano de publicação
--  1.10 -  Crie um endpoint para buscar um livro por categoria
--  1.11 -  Crie um endpoint para buscar um livro por preço
--  1.12 -  Crie um endpoint para buscar um livro por ISBN
--  1.13 -  Crie um endpoint para buscar um livro por idioma
+-  1.1  -  Criar um endpoint para salvar um livro ✅ 
+-  1.2  -  Criar um endpoint para listar todos os livros ✅
+-  1.3  -  Criar um endpoint para buscar um livro por id ✅
+-  1.4  -  Criar um endpoint para atualizar um livro ✅
+-  1.5  -  Criar um endpoint para deletar um livro ✅
+-  1.6  -  Criar um endpoint para buscar um livro por nome ✅
+-  1.7  -  Criar um endpoint para buscar um livro por autor ✅
+-  1.8  -  Criar um endpoint para buscar um livro por editora 
+-  1.9  -  Criar um endpoint para buscar um livro por ano de publicação
+-  1.10 -  Criar um endpoint para buscar um livro por categoria  ✅
+-  1.11 -  Criar um endpoint para buscar um livro por preço
+-  1.12 -  Criar um endpoint para buscar um livro por ISBN
+-  1.13 -  Criar um endpoint para buscar um livro por idioma

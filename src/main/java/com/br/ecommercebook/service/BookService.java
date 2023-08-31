@@ -51,6 +51,34 @@ public class BookService {
     return bookVO;
   }
 
+  public void delete(Long id) {
+    bookRepository.deleteById(id);
+  }
+
+  public BookVO update(Long id, BookDTO bookRequest) {
+    var book = bookRepository.findById(id).get();
+    book.setName(bookRequest.getName());
+    book.setLanguage(bookRequest.getLanguage());
+    book.setPagesNumber(bookRequest.getPagesNumber());
+    book.setIsbn(bookRequest.getIsbn());
+    book.setPrice(bookRequest.getPrice());
+    book.setReleaseDate(this.convertStringToDate(bookRequest.getReleaseDate()));
+    book.setVersion(bookRequest.getVersion());
+    var authorList = this.setAuthorList(bookRequest.getAuthors(), book);
+    var categoryList = this.setCategoryList(bookRequest.getCategories(), book);
+    book.setAuthor(authorList);
+    book.setCategory(categoryList);
+    book.setPublisher(publisherRepository.findById(bookRequest.getPublisher()).get());
+    bookRepository.save(book);
+    var authorVOList = this.getAuthorVOList(authorList);
+    var categoryListVO = this.getCategoryVOList(categoryList);
+    var bookVO = modelMapper.map(book, BookVO.class);
+    bookVO.setAuthor(authorVOList);
+    bookVO.setCategory(categoryListVO);
+    return bookVO;
+  }
+
+
   public List<BookVO> getAll() {
     var bookList = bookRepository.findAll();
     var bookVOList = new ArrayList<BookVO>();
@@ -82,31 +110,14 @@ public class BookService {
     return bookVOList;
   }
 
-  public void delete(Long id) {
-    bookRepository.deleteById(id);
-  }
-
-  public BookVO update(Long id, BookDTO bookRequest) {
-    var book = bookRepository.findById(id).get();
-    book.setName(bookRequest.getName());
-    book.setLanguage(bookRequest.getLanguage());
-    book.setPagesNumber(bookRequest.getPagesNumber());
-    book.setIsbn(bookRequest.getIsbn());
-    book.setPrice(bookRequest.getPrice());
-    book.setReleaseDate(this.convertStringToDate(bookRequest.getReleaseDate()));
-    book.setVersion(bookRequest.getVersion());
-    var authorList = this.setAuthorList(bookRequest.getAuthors(), book);
-    var categoryList = this.setCategoryList(bookRequest.getCategories(), book);
-    book.setAuthor(authorList);
-    book.setCategory(categoryList);
-    book.setPublisher(publisherRepository.findById(bookRequest.getPublisher()).get());
-    bookRepository.save(book);
-    var authorVOList = this.getAuthorVOList(authorList);
-    var categoryListVO = this.getCategoryVOList(categoryList);
-    var bookVO = modelMapper.map(book, BookVO.class);
-    bookVO.setAuthor(authorVOList);
-    bookVO.setCategory(categoryListVO);
-    return bookVO;
+  public List<BookVO> getByCategory(Long categoryId) {
+    var bookList = bookRepository.findByCategory(categoryId);
+    var bookVOList = new ArrayList<BookVO>();
+    for (Book book : bookList) {
+      var bookVO = modelMapper.map(book, BookVO.class);
+      bookVOList.add(bookVO);
+    }
+    return bookVOList;
   }
 
   private List<AuthorVO> getAuthorVOList(List<Author> author) {

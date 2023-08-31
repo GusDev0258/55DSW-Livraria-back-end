@@ -57,4 +57,10 @@ public class BookController {
     var bookResponse = bookService.update(id, bookRequest);
     return new ResponseEntity<BookVO>(bookResponse, HttpStatus.OK);
   }
+
+  @GetMapping("/category/{categoryId}")
+  public ResponseEntity<List<BookVO>> getByCategory(@PathVariable Long categoryId) {
+    var bookResponse = bookService.getByCategory(categoryId);
+    return new ResponseEntity<List<BookVO>>(bookResponse, HttpStatus.OK);
+  }
 }
