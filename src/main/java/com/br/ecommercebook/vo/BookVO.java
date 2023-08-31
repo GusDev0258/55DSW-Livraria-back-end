@@ -14,7 +14,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class BookVO {
-    private String name;
+  private Long id;
+  private String name;
   private String language;
   private int pagesNumber;
   private String isbn;
