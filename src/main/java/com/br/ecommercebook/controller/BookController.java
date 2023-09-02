@@ -63,4 +63,10 @@ public class BookController {
     var bookResponse = bookService.getByCategory(categoryId);
     return new ResponseEntity<List<BookVO>>(bookResponse, HttpStatus.OK);
   }
+
+  @GetMapping("/getAll")
+  public ResponseEntity<List<BookVO>> getAll() {
+    var bookResponse = bookService.getAll();
+    return new ResponseEntity<List<BookVO>>(bookResponse, HttpStatus.OK);
+  }
 }

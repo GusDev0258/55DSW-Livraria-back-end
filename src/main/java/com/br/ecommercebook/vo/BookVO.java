@@ -22,6 +22,8 @@ public class BookVO {
   private Double price;
   private LocalDate releaseDate;
   private BookType version;
+  private String description;
+  private String cover;
   private PublisherVO publisher;
   private List<AuthorVO> author;
   private List<CategoryVO> category;
