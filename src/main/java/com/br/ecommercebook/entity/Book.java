@@ -27,6 +27,8 @@ public class Book {
   private Double price;
   private LocalDate releaseDate;
   private BookType version;
+  private String description;
+  private String cover;
 
   @ManyToMany(mappedBy = "books")
   private List<Author> author;

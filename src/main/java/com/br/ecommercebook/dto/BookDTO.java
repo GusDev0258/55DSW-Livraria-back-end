@@ -18,6 +18,8 @@ public class BookDTO {
   private Double price;
   private String releaseDate;
   private BookType version;
+  private String description;
+  private String cover;
   private Long publisher;
   private Long[] authors;
   private Long[] categories;
