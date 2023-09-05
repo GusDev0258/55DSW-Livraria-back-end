@@ -1,12 +1,16 @@
 package com.br.ecommercebook.service;
 
 import java.security.Key;
+import java.util.Date;
+import java.util.Map;
 import java.util.function.Function;
 
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 
@@ -21,8 +25,20 @@ public class JwtService {
   }
 
   public <T> T extractClaim(String token, Function<Claims, T> claimsResolver){
-    final Claims claims = extractAllClaims(token);
+    final Claims claims = this.extractAllClaims(token);
     return claimsResolver.apply(claims);
+  }
+
+  public String generateToken(Map<String, Object> extraClaims, UserDetails userDetails){
+    var currentTime = System.currentTimeMillis();
+    var timeToExpire = currentTime + 1000 * 60 * 24;
+    return Jwts.builder()
+          .setClaims(extraClaims)
+          .setSubject(userDetails.getUsername())
+          .setIssuedAt(new Date(currentTime))
+          .setExpiration(new Date(timeToExpire))
+          .signWith(this.getSignInKey(), SignatureAlgorithm.HS256)
+          .compact();
   }
 
   private Claims extractAllClaims(String token){
