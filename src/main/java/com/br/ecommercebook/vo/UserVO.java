@@ -12,9 +12,9 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserVO {
-    private String name;
+    private String firstname;
+    private String lastname;
     private String phone;
     private String email;
-    private LocalDate birthdate;
     private List<Address> addresses;
 }
