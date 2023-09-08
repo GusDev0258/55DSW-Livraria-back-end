@@ -32,6 +32,9 @@
       var jwtToken = jwtService.generateToken(user);
       return AuthenticationResponse.builder()
           .token(jwtToken)
+          .email(user.getEmail())
+          .firstname(user.getFirstname())
+          .role(user.getRole())
           .build();
     }
 

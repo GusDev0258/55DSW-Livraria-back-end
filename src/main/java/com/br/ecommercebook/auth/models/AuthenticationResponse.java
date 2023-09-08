@@ -1,5 +1,7 @@
 package com.br.ecommercebook.auth.models;
 
+import com.br.ecommercebook.enums.Role;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,4 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class AuthenticationResponse {
     String token;
+    String email;
+    String firstname;
+    Role role;
 }
