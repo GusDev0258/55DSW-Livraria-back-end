@@ -44,7 +44,7 @@
           .lastname(registerRequest.getLastname())
           .email(registerRequest.getEmail())
           .password(passwordEncoder.encode(registerRequest.getPassword()))
-          .role(Role.USER)
+          .role(Role.ROLE_USER)
           .build();
       userRepository.save(user);
       var jwtToken = jwtService.generateToken(user);
