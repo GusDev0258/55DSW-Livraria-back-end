@@ -13,7 +13,7 @@ import java.util.List;
 @Table(name = "voucher")
 public class Voucher {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private float discount;
     private boolean active;

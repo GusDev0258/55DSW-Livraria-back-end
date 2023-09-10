@@ -1,149 +1,133 @@
 -- Insert authors
 INSERT INTO
-   author (id, name)
+   author (name)
 VALUES
-   (1, 'George Orwell'),
-   (2, 'Jane Austen'),
-   (3, 'Charles Dickens'),
-   (4, 'F. Scott Fitzgerald'),
-   (5, 'Agatha Christie'),
-   (6, 'J.K. Rowling'),
-   (7, 'Harper Lee'),
-   (8, 'Leo Tolstoy'),
-   (9, 'Mark Twain'),
-   (10, 'J.R.R. Tolkien'),
-   (11, 'Homer'),
-   (12, 'Virginia Woolf'),
-   (13, 'Herman Melville'),
-   (14, 'Gabriel García Márquez'),
-   (15, 'Stephen King'),
-   (16, 'Roald Dahl'),
-   (17, 'Maya Angelou'),
-   (18, 'Toni Morrison'),
-   (19, 'Oscar Wilde'),
-   (20, 'Ernest Hemingway'),
-   (21, 'George R.R. Martin'),
-   (22, 'Neil Gaiman'),
-   (23, 'Isaac Asimov'),
-   (24, 'Robert C. Martin');
+   ('George Orwell'),
+   ('Jane Austen'),
+   ('Charles Dickens'),
+   ('F. Scott Fitzgerald'),
+   ('Agatha Christie'),
+   ('J.K. Rowling'),
+   ('Harper Lee'),
+   ('Leo Tolstoy'),
+   ('Mark Twain'),
+   ('J.R.R. Tolkien'),
+   ('Homer'),
+   ('Virginia Woolf'),
+   ('Herman Melville'),
+   ('Gabriel García Márquez'),
+   ('Stephen King'),
+   ('Roald Dahl'),
+   ('Maya Angelou'),
+   ('Toni Morrison'),
+   ('Oscar Wilde'),
+   ('Ernest Hemingway'),
+   ('George R.R. Martin'),
+   ('Neil Gaiman'),
+   ('Isaac Asimov'),
+   ('Robert C. Martin');
 
 -- Insert categories
 INSERT INTO
-   category (id, name)
+   category (name)
 VALUES
-   (1, 'Science Fiction'),
-   (2, 'Mystery'),
-   (3, 'Classic'),
-   (4, 'Fantasy'),
-   (5, 'Horror'),
-   (6, 'Children''s Literature'),
-   (7, 'Non-Fiction');
+   ('Science Fiction'),
+   ('Mystery'),
+   ('Classic'),
+   ('Fantasy'),
+   ('Horror'),
+   ('Children''s Literature'),
+   ('Non-Fiction');
 
 -- Insert publishers
 INSERT INTO
-   publisher (id, name, email, phone)
+   publisher (name, email, phone)
 VALUES
-   (1, 'Penguin Books', 'info@pb.com', '1234567890'),
+   ('Penguin Books', 'info@pb.com', '1234567890'),
    (
-      2,
       'Oxford University Press',
       'info@ouxp.com',
       '123456789'
    ),
    (
-      3,
       'HarperCollins',
       'info@harpercollins.com',
       '9876543210'
    ),
-   (4, 'Scribner', 'info@scribner.com', '5555555555'),
+   ('Scribner', 'info@scribner.com', '5555555555'),
    (
-      5,
       'William Morrow',
       'info@williammorrow.com',
       '1111111111'
    ),
    (
-      6,
       'Scholastic',
       'info@scholastic.com',
       '9999999999'
    ),
    (
-      7,
       'Random House',
       'info@randomhouse.com',
       '8888888888'
    ),
    (
-      8,
       'Doubleday',
       'info@doubleday.com',
       '7777777777'
    ),
    (
-      9,
       'Vintage Books',
       'info@vintagebooks.com',
       '6666666666'
    ),
    (
-      10,
       'Houghton Mifflin',
       'info@houghtonmifflin.com',
       '4444444444'
    ),
    (
-      11,
       'W. W. Norton & Company',
       'info@wwnorton.com',
       '3333333333'
    ),
-   (12, 'Knopf', 'info@knopf.com', '2222222222'),
-   (13, 'Avon', 'info@avon.com', '999999999'),
+   ('Knopf', 'info@knopf.com', '2222222222'),
+   ('Avon', 'info@avon.com', '999999999'),
    (
-      14,
       'Anchor Books',
       'info@anchorbooks.com',
       '888888888'
    ),
    (
-      15,
       'Signet Classics',
       'info@signetclassics.com',
       '777777777'
    ),
-   (16, 'Vintage', 'info@vintage.com', '666666666'),
+   ('Vintage', 'info@vintage.com', '666666666'),
    (
-      17,
       'Ballantine Books',
       'info@ballantinebooks.com',
       '555555555'
    ),
    (
-      18,
       'Mariner Books',
       'info@marinerbooks.com',
       '444444444'
    ),
-   (19, 'Dell', 'info@dell.com', '333333333'),
-   (20, 'Bantam', 'info@bantam.com', '222222222'),
+   ('Dell', 'info@dell.com', '333333333'),
+   ('Bantam', 'info@bantam.com', '222222222'),
    (
-      21,
       'Viking Press',
       'info@vikingpress.com',
       '111111111'
    ),
    (
-      22,
       'Harper & Brothers',
       'info@harperandbrothers.com',
       '99999999'
    ),
-   (23, 'Ecco', 'info@ecco.com', '88888888'),
-   (24, 'Del Rey', 'info@delrey.com', '77777777'),
+   ('Ecco', 'info@ecco.com', '88888888'),
+   ('Del Rey', 'info@delrey.com', '77777777'),
    (
-      25,
       'Prentice Hall',
       'info@prenticehall.com',
       '66666666'
@@ -152,7 +136,6 @@ VALUES
 -- Insert books
 INSERT INTO
    book (
-      id,
       name,
       language,
       pages_number,
@@ -166,7 +149,6 @@ INSERT INTO
    )
 VALUES
    (
-      1,
       '1984',
       'English',
       328,
@@ -179,7 +161,6 @@ VALUES
       1
    ),
    (
-      2,
       'Pride and Prejudice',
       'English',
       279,
@@ -192,7 +173,6 @@ VALUES
       2
    ),
    (
-      3,
       'Great Expectations',
       'English',
       505,
@@ -205,7 +185,6 @@ VALUES
       3
    ),
    (
-      4,
       'The Great Gatsby',
       'English',
       180,
@@ -218,7 +197,6 @@ VALUES
       4
    ),
    (
-      5,
       'Murder on the Orient Express',
       'English',
       322,
@@ -231,7 +209,6 @@ VALUES
       5
    ),
    (
-      6,
       'Harry Potter and the Sorcerer''s Stone',
       'English',
       309,
@@ -244,7 +221,6 @@ VALUES
       6
    ),
    (
-      7,
       'To Kill a Mockingbird',
       'English',
       324,
@@ -257,7 +233,6 @@ VALUES
       7
    ),
    (
-      8,
       'War and Peace',
       'English',
       1444,
@@ -270,7 +245,6 @@ VALUES
       8
    ),
    (
-      9,
       'The Adventures of Huckleberry Finn',
       'English',
       366,
@@ -283,7 +257,6 @@ VALUES
       9
    ),
    (
-      10,
       'The Hobbit',
       'English',
       310,
@@ -296,7 +269,6 @@ VALUES
       10
    ),
    (
-      11,
       'The Odyssey',
       'English',
       541,
@@ -309,7 +281,6 @@ VALUES
       11
    ),
    (
-      12,
       'Mrs. Dalloway',
       'English',
       194,
@@ -322,7 +293,6 @@ VALUES
       12
    ),
    (
-      13,
       'Moby-Dick',
       'English',
       720,
@@ -335,7 +305,6 @@ VALUES
       13
    ),
    (
-      14,
       'One Hundred Years of Solitude',
       'Spanish',
       417,
@@ -348,7 +317,6 @@ VALUES
       14
    ),
    (
-      15,
       'The Shining',
       'English',
       447,
@@ -361,7 +329,6 @@ VALUES
       15
    ),
    (
-      16,
       'Charlie and the Chocolate Factory',
       'English',
       200,
@@ -374,7 +341,6 @@ VALUES
       16
    ),
    (
-      17,
       'I Know Why the Caged Bird Sings',
       'English',
       289,
@@ -387,7 +353,6 @@ VALUES
       17
    ),
    (
-      18,
       'Beloved',
       'English',
       275,
@@ -400,7 +365,6 @@ VALUES
       18
    ),
    (
-      19,
       'The Picture of Dorian Gray',
       'English',
       198,
@@ -413,7 +377,6 @@ VALUES
       19
    ),
    (
-      20,
       'The Old Man and the Sea',
       'English',
       127,
@@ -426,7 +389,6 @@ VALUES
       20
    ),
    (
-      21,
       'A Game of Thrones',
       'English',
       694,
@@ -439,7 +401,6 @@ VALUES
       21
    ),
    (
-      22,
       'American Gods',
       'English',
       635,
@@ -452,7 +413,6 @@ VALUES
       22
    ),
    (
-      23,
       'Foundation',
       'English',
       255,
@@ -465,7 +425,6 @@ VALUES
       23
    ),
    (
-      24,
       'Clean Code',
       'English',
       464,
@@ -536,5 +495,5 @@ VALUES
    (4, 23),
    (7, 24);
 
-INSERT INTO users (user_id, firstname, lastname, email, password, role)
-   values(1, 'Admin','admin', 'admin@email.com', '$2a$10$aIFY0/qIk0.cDChbM.SywOIP/bR0oLXXXWM6Rp37svntXRrL2UKYG', 'ADMIN');
+INSERT INTO users (firstname, lastname, email, password, role)
+   values('Admin','admin', 'admin@email.com', '$2a$10$aIFY0/qIk0.cDChbM.SywOIP/bR0oLXXXWM6Rp37svntXRrL2UKYG', 'ROLE_ADMIN');

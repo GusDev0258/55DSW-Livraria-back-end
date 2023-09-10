@@ -13,7 +13,7 @@ import java.util.List;
 @Table(name = "stock")
 public class Stock {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "stock")
     @JsonManagedReference
