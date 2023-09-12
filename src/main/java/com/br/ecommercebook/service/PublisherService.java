@@ -1,5 +1,8 @@
 package com.br.ecommercebook.service;
 
+import java.util.List;
+import java.util.ArrayList;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
@@ -30,5 +33,15 @@ public class PublisherService {
     var publisher = publisherRepository.findById(publisherID).get();
     var publisherVO = modelMapper.map(publisher, PublisherVO.class);
     return publisherVO;
+  }
+
+  public List<PublisherVO> getAll() {
+    var publishers = publisherRepository.findAll();
+    var publishVOList = new ArrayList<PublisherVO>();
+    for(Publisher publisher : publishers){
+      var publisherVO = modelMapper.map(publisher, PublisherVO.class);
+      publishVOList.add(publisherVO);
+    }
+    return publishVOList;
   }
 }
