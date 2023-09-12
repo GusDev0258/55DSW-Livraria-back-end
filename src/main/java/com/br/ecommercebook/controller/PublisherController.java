@@ -4,6 +4,9 @@ import com.br.ecommercebook.dto.PublisherDTO;
 import com.br.ecommercebook.service.PublisherService;
 import com.br.ecommercebook.vo.PublisherVO;
 import lombok.AllArgsConstructor;
+
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -25,6 +28,12 @@ public class PublisherController {
   public ResponseEntity<PublisherVO> getPublisher(@PathVariable Long publisherId) {
     var publisher = publisherService.getPublisherById(publisherId);
     return new ResponseEntity<PublisherVO>(publisher, HttpStatus.OK);
+  }
+
+  @GetMapping("/getAll")
+  public ResponseEntity<List<PublisherVO>> getAll(){
+    var publishers = publisherService.getAll();
+    return new ResponseEntity<List<PublisherVO>>(publishers, HttpStatus.OK);
   }
 
 }
