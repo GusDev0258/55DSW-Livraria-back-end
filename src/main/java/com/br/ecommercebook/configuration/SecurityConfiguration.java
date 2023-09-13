@@ -37,7 +37,7 @@ public class SecurityConfiguration {
                         .requestMatchers(HttpMethod.GET, "api/category/getAll").permitAll()
                         .requestMatchers(HttpMethod.GET, "api/author/getAll").permitAll()
                         .requestMatchers(HttpMethod.GET, "api/publisher/getAll").permitAll()
-                        .requestMatchers(HttpMethod.POST, "api/book/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.POST, "api/book/").hasAnyRole("ADMIN")
                         .anyRequest().authenticated())
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
