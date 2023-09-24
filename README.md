@@ -1,6 +1,6 @@
 # 📚 Bookstore Backend
 
-This is the backend part of the Bookstore project developed for the Web Development class at Universidade do Estado de Santa Catarina. The backend is built using Java Spring Boot with JPA and PostgreSQL and managed with Maven.
+This is the backend part of the Bookstore project developed for the Web Development class at Universidade do Estado de Santa Catarina. The backend is built using Java Spring Boot with JPA and PostgreSQL, managed with Maven, and secured using JWT Token and Spring Security.
 
 ## Getting Started 🚀
 
@@ -34,6 +34,10 @@ Before you begin, make sure you have the following installed on your machine:
    mvn clean install
    ```
 
+## Authentication and Authorization 🔐
+
+This backend utilizes JWT Token and Spring Security for robust authentication and authorization mechanisms, ensuring secure access to API endpoints.
+
 ## Features 🌟
 
 - Provides API endpoints for managing books.
@@ -48,7 +52,7 @@ Before you begin, make sure you have the following installed on your machine:
 
 ## Contributing 🤝
 
-Contributions to this project are welcome. You can contribute by opening issues for bugs or feature requests, or by submitting pull requests with enhancements or fixes.
+Contributions to this project are welcome. You can contribute by opening issues for bugs or feature requests or by submitting pull requests with enhancements or fixes.
 
 ## License 📄
 
