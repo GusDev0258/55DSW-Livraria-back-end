@@ -24,11 +24,11 @@ public class Order {
 
   private String status;
 
-  @ManyToMany
+  @ManyToMany()
   @JoinTable(name="order_book", joinColumns = {@JoinColumn(name="order_id")}, inverseJoinColumns = {@JoinColumn(name="id")})
   private List<Book> books;
 
-  @OneToOne(cascade = CascadeType.ALL)
+  @OneToOne()
   @JoinColumn(name = "payment_method_id", nullable = false, referencedColumnName = "id")
   private PaymentMethod paymentMethod;
 

@@ -2,7 +2,6 @@ package com.br.ecommercebook.entity;
 
 import com.br.ecommercebook.enums.BookType;
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -30,25 +29,25 @@ public class Book {
   private String description;
   private String cover;
 
-  @ManyToMany(mappedBy = "books")
+  @ManyToMany(mappedBy = "books", cascade = CascadeType.REMOVE)
   private List<Author> author;
 
-  @ManyToOne
+  @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name="publisher_id", nullable=false)
   @JsonBackReference
   private Publisher publisher;
 
-  @ManyToMany(mappedBy = "books")
+  @ManyToMany(mappedBy = "books", cascade = CascadeType.REMOVE)
   private List<Category> category;
 
-  @ManyToMany(mappedBy = "books")
+  @ManyToMany(mappedBy = "books", cascade = CascadeType.REMOVE)
   private List<Cart> carts;
 
-  @ManyToOne
+  @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name="stock_id", nullable=true)
   @JsonBackReference
   private Stock stock;
 
-  @ManyToMany(mappedBy = "books")
+  @ManyToMany(mappedBy = "books", cascade = CascadeType.REMOVE)
   private List<Order> orders;
 }

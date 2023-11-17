@@ -21,7 +21,7 @@ public class Category {
     @JsonManagedReference
     private List<SubCategory> subCategory;
     
-    @ManyToMany
+    @ManyToMany()
     @JoinTable(name="category_book", joinColumns = {@JoinColumn(name="category_id")}, inverseJoinColumns = {@JoinColumn(name="book_id")})
     private List<Book> books;
 
