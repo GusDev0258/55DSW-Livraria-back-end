@@ -15,7 +15,7 @@ public class Cart {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  @ManyToMany
+  @ManyToMany()
   @JoinTable(name="cart_book", joinColumns = {@JoinColumn(name="cart_id")}, inverseJoinColumns = {@JoinColumn(name="id")})
   private List<Book> books;
 

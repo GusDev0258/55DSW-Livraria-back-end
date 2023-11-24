@@ -4,16 +4,15 @@ import com.br.ecommercebook.dto.BookDTO;
 import com.br.ecommercebook.service.BookService;
 import com.br.ecommercebook.vo.BookVO;
 
-import jakarta.websocket.server.PathParam;
 import lombok.AllArgsConstructor;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.br.ecommercebook.dto.BookDTO;
 
 @RestController
 @AllArgsConstructor
@@ -55,6 +54,12 @@ public class BookController {
   @PutMapping("/{id}")
   public ResponseEntity<BookVO> update(@PathVariable Long id, @RequestBody BookDTO bookRequest) {
     var bookResponse = bookService.update(id, bookRequest);
+    return new ResponseEntity<BookVO>(bookResponse, HttpStatus.OK);
+  }
+
+  @PatchMapping("/{id}")
+  public ResponseEntity<BookVO> updatePatch(@PathVariable Long id, @RequestBody Map<String, Object> bookFields) {
+    var bookResponse = bookService.updatePatch(id, bookFields );
     return new ResponseEntity<BookVO>(bookResponse, HttpStatus.OK);
   }
 

@@ -17,6 +17,7 @@ import lombok.AllArgsConstructor;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
@@ -78,6 +79,17 @@ public class BookService {
     return bookVO;
   }
 
+  public BookVO updatePatch(Long id, Map<String, Object> bookFields) {
+    var oldBook = bookRepository.findById(id).get();
+    if(oldBook == null) {
+      return null;
+    }
+
+    modelMapper.map(bookFields, oldBook);
+    bookRepository.save(oldBook);
+    
+    return modelMapper.map(oldBook, BookVO.class);
+  } 
 
   public List<BookVO> getAll() {
     var bookList = bookRepository.findAll();
