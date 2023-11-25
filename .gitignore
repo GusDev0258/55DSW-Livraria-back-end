@@ -31,6 +31,9 @@ build/
 
 ### VS Code ###
 .vscode/
+<<<<<<< HEAD
+=======
 application.properties
 .gitignore
 src/main/resources/application.properties
+>>>>>>> 04ecd8ae7a51e1ee263eeff9d681a497b2b35b0a
