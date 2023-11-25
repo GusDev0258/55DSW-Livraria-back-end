@@ -23,55 +23,91 @@ public class BookController {
 
   @PostMapping("/")
   public ResponseEntity<BookVO> create(@RequestBody BookDTO bookRequest) {
-    var bookResponse = bookService.create(bookRequest);
-    return new ResponseEntity<BookVO>(bookResponse, HttpStatus.CREATED);
+    try {
+      var bookResponse = bookService.create(bookRequest);
+      return new ResponseEntity<BookVO>(bookResponse, HttpStatus.CREATED);
+    } catch (Exception error) {
+      return new ResponseEntity<BookVO>(HttpStatus.UNPROCESSABLE_ENTITY);
+    }
   }
 
   @GetMapping("/{id}")
   public ResponseEntity<BookVO> getById(@PathVariable Long id) {
-    var bookResponse = bookService.getById(id);
-    return new ResponseEntity<BookVO>(bookResponse, HttpStatus.OK);
+    try {
+      var bookResponse = bookService.getById(id);
+      return new ResponseEntity<BookVO>(bookResponse, HttpStatus.OK);
+    } catch(Exception error) {
+      return new ResponseEntity<BookVO>(HttpStatus.NOT_FOUND);
+    }
   }
 
   @GetMapping("/")
   public ResponseEntity<BookVO> getByName(@RequestParam String name) {
-    var bookResponse = bookService.getByName(name);
-    return new ResponseEntity<BookVO>(bookResponse, HttpStatus.OK);
+    try {
+      var bookResponse = bookService.getByName(name);
+      return new ResponseEntity<BookVO>(bookResponse, HttpStatus.OK);
+    } catch(Exception error) {
+      return new ResponseEntity<BookVO>(HttpStatus.NOT_FOUND);
+    }
   }
 
   @GetMapping("/author/{authorId}")
   public ResponseEntity<List<BookVO>> getByAuthor(@PathVariable Long authorId) {
-    var bookResponse = bookService.getByAuthor(authorId);
-    return new ResponseEntity<List<BookVO>>(bookResponse, HttpStatus.OK);
+    try {
+      var bookResponse = bookService.getByAuthor(authorId);
+      return new ResponseEntity<List<BookVO>>(bookResponse, HttpStatus.OK);
+    } catch(Exception error) {
+      return new ResponseEntity<List<BookVO>>(HttpStatus.NOT_FOUND);
+    }
   }
 
   @DeleteMapping("/{id}")
   public ResponseEntity<Void> delete(@PathVariable Long id) {
-    bookService.delete(id);
-    return new ResponseEntity<Void>(HttpStatus.OK);
+    try {
+      bookService.delete(id);
+      return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+    } catch (Exception error) {
+      return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+    }
   }
 
   @PutMapping("/{id}")
   public ResponseEntity<BookVO> update(@PathVariable Long id, @RequestBody BookDTO bookRequest) {
-    var bookResponse = bookService.update(id, bookRequest);
-    return new ResponseEntity<BookVO>(bookResponse, HttpStatus.OK);
+    try {
+      var bookResponse = bookService.update(id, bookRequest);
+      return new ResponseEntity<BookVO>(bookResponse, HttpStatus.OK);
+    } catch (Exception error) {
+      return new ResponseEntity<BookVO>(HttpStatus.UNPROCESSABLE_ENTITY);
+    }
   }
 
   @PatchMapping("/{id}")
   public ResponseEntity<BookVO> updatePatch(@PathVariable Long id, @RequestBody Map<String, Object> bookFields) {
-    var bookResponse = bookService.updatePatch(id, bookFields );
-    return new ResponseEntity<BookVO>(bookResponse, HttpStatus.OK);
+    try {
+      var bookResponse = bookService.updatePatch(id, bookFields );
+      return new ResponseEntity<BookVO>(bookResponse, HttpStatus.OK);
+    } catch (Exception error) {
+      return new ResponseEntity<BookVO>(HttpStatus.UNPROCESSABLE_ENTITY);
+    }
   }
 
   @GetMapping("/category/{categoryId}")
   public ResponseEntity<List<BookVO>> getByCategory(@PathVariable Long categoryId) {
-    var bookResponse = bookService.getByCategory(categoryId);
-    return new ResponseEntity<List<BookVO>>(bookResponse, HttpStatus.OK);
+    try {
+      var bookResponse = bookService.getByCategory(categoryId);
+      return new ResponseEntity<List<BookVO>>(bookResponse, HttpStatus.OK);
+    } catch (Exception error) {
+      return new ResponseEntity<List<BookVO>>(HttpStatus.NOT_FOUND);
+    }
   }
 
   @GetMapping("/getAll")
   public ResponseEntity<List<BookVO>> getAll() {
-    var bookResponse = bookService.getAll();
-    return new ResponseEntity<List<BookVO>>(bookResponse, HttpStatus.OK);
+    try {
+      var bookResponse = bookService.getAll();
+      return new ResponseEntity<List<BookVO>>(bookResponse, HttpStatus.OK);
+    } catch (Exception error) {
+      return new ResponseEntity<List<BookVO>>(HttpStatus.INTERNAL_SERVER_ERROR);
+    }
   }
 }

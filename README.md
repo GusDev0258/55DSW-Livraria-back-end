@@ -13,6 +13,7 @@ Before you begin, make sure you have the following installed on your machine:
 - Java: You can download and install Java from [java.com](https://www.java.com/).
 - PostgreSQL: You can download and install PostgreSQL from [postgresql.org](https://www.postgresql.org/download/).
 - Maven: You can download and install Maven from [maven.apache.org](https://maven.apache.org/download.cgi).
+- Change application.properties file to match your database configuration.
 
 ### Installation 📥
 
