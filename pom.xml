@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.1.2</version>
+        <version>3.1.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.br</groupId>
@@ -14,7 +14,7 @@
     <name>ecommerceBook</name>
     <description>ecommerceBook</description>
     <properties>
-        <java.version>17</java.version>
+        <java.version>21</java.version>
     </properties>
     <dependencies>
         <dependency>
@@ -89,6 +89,38 @@
             <groupId>org.modelmapper</groupId>
             <artifactId>modelmapper</artifactId>
             <version>3.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured-all</artifactId>
+            <version>5.4.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>5.4.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>spring-mock-mvc</artifactId>
+            <version>5.4.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>json-schema-validator</artifactId>
+            <version>5.4.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- JUNIT -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
